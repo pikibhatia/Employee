@@ -1,0 +1,28 @@
+<h3>Employee List<a class="btn btn-secondary float-end" href="/employee"> Create New</a> </h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Job Title</th>
+            <th>Email ID</th>
+
+        </tr>
+    </thead>
+    <tbody class="table-stripped">
+        {{#each list}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.jobTitle}}</td>
+            <td>{{this.emailID}}</td>
+
+            <td>
+                <div class="float-end">
+                    <a class="btn btn-primary btn-sm" href="/employee/{{this.id}}">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/employee/delete/{{this.id}}"
+                        onclick="return confirm('Are you sure to delete?');">Delete </a>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
