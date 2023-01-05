@@ -11,11 +11,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    if (req.body._id == '') {
-        insertRecord(req, res)
-    } else {
-        updateRecord(req, res)
-    }
+    if (req.body._id == '') insertRecord(req, res)
+    else updateRecord(req, res)
 })
 
 
@@ -24,11 +21,9 @@ const insertRecord = (req, res) => {
     employee.name = req.body.name;
     employee.jobTitle = req.body.jobTitle;
     employee.emailID = req.body.emailID;
-
     employee.save((err, doc) => {
         if (!err) res.redirect('employee/list')
         else console.log('Error in inserting employee:' + err)
-
     })
 }
 
@@ -61,10 +56,8 @@ router.get('/:id', (req, res) => {
 router.get('/delete/:id', (req, res) => {
     console.log(req.params.id);
     Employee.findByIdAndRemove(req.params.id, (err, doc) => {
-        if (!err) {
-
-            res.redirect('back')
-        } else console.log(`Error in deletion: ${err}'`)
+        if (!err) res.redirect('back')
+        else console.log(`Error in deletion: ${err}'`)
     })
 })
 

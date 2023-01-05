@@ -13,5 +13,4 @@ var employeeSchema = new mongoose.Schema({
         required: 'EmailID is required'
     }
 })
-
 mongoose.model('Employee', employeeSchema)
